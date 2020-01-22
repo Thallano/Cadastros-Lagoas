@@ -85,10 +85,12 @@ function Main ({ navigation }) {
                             latitude: selo.location.coordinates[1], 
                         }}
                         >
+                           
                             <Image 
                                 style={styles.avatar}
                                 
-                                source={{ uri: 'https://semplan.teresina.pi.gov.br/wp-content/uploads/sites/39/2015/12/LOGO-LAGOAS.jpg' }} 
+                               
+                                source={require('./Logo_Lagoas.png') } 
                             />   
                                 
                         <Callout onPress={() => {
@@ -116,6 +118,7 @@ function Main ({ navigation }) {
                     <TouchableOpacity 
                         onPress={loadSelos} 
                         style={styles.loadButton}>
+                          
                          <MaterialIcons 
                             name="my-location" 
                             size={20} 
