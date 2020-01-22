@@ -144,9 +144,9 @@ const styles = StyleSheet.create({
     callout: {
         width: 260,
         paddingLeft: 5,
-        borderRadius: 10,
+        /*borderRadius: 10,
         borderWidth: 3,
-        borderColor: '#00AFEF',
+        borderColor: '#00AFEF',*/
     },
 
     seloImovel: {
