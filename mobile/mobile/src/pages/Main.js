@@ -37,6 +37,7 @@ function Main ({ navigation }) {
 
     }, []);
 
+
 /*function setupWebsocket(){
     const{ latitude, longitude } = currentRegion;
 
@@ -44,8 +45,8 @@ function Main ({ navigation }) {
         latitude,
         longitude,
         edital,
-    );*/
-}
+    );
+}*/
 
     async function loadSelos(){
         const { latitude, longitude } = currentRegion;
@@ -66,10 +67,9 @@ function Main ({ navigation }) {
               setCurrentRegion(region);
     }
 
-    /*if (!currentRegion){
-        return null;
-    }*/
-
+   if(!currentRegion){
+       return null;
+   }
     return (
         <>
             <MapView 
@@ -86,7 +86,8 @@ function Main ({ navigation }) {
                         }}
                         >
                             <Image 
-                                style={styles.avatar} 
+                                style={styles.avatar}
+                                
                                 source={{ uri: 'https://avatars1.githubusercontent.com/u/20881531?s=460&v=4' }} 
                             />   
                                 
@@ -123,8 +124,8 @@ function Main ({ navigation }) {
             </View>
         </>
     );
-}
 
+}
 const styles = StyleSheet.create({
 
     map: {
@@ -201,4 +202,5 @@ const styles = StyleSheet.create({
 
 })
 
-export default Main;
+
+export default Main; 
