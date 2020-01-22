@@ -15,7 +15,7 @@ const Routes = createAppContainer(
         Profile: {
             screen: Profile,
             navigationOptions:{ 
-                title:'Dossie'
+                title: 'Dossie'
             }
         },
     }, {
@@ -24,7 +24,7 @@ const Routes = createAppContainer(
             headerTitleAlign: 'center',
             headerBackTitleVisible: false,
             headerStyle: {
-               backgroundColor: '#7D40E7'
+               backgroundColor: '#00AFEF'
            }
         },
     })

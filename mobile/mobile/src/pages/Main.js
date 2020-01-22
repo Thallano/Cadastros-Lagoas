@@ -88,7 +88,7 @@ function Main ({ navigation }) {
                             <Image 
                                 style={styles.avatar}
                                 
-                                source={{ uri: 'https://avatars1.githubusercontent.com/u/20881531?s=460&v=4' }} 
+                                source={{ uri: 'https://semplan.teresina.pi.gov.br/wp-content/uploads/sites/39/2015/12/LOGO-LAGOAS.jpg' }} 
                             />   
                                 
                         <Callout onPress={() => {
@@ -136,9 +136,9 @@ const styles = StyleSheet.create({
     avatar: {
         width: 54,
         height:54,
-        borderRadius: 50,
-        borderWidth: 4,
-        borderColor: '#8E4DFF',
+        borderRadius: 1,
+        borderWidth: 2,
+        borderColor: '#00AFEF',
     },
 
     callout: {
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         borderRadius: 10,
         borderWidth: 3,
-        borderColor: '#8E4DFF',
+        borderColor: '#00AFEF',
     },
 
     seloImovel: {
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     loadButton: {
         width: 50,
         height: 50,
-        backgroundColor: '#8E4DFF',
+        backgroundColor: '#00AFEF',
         borderRadius: 25,
         justifyContent: 'center',
         alignItems:'center',
@@ -201,6 +201,5 @@ const styles = StyleSheet.create({
     },
 
 })
-
 
 export default Main; 
