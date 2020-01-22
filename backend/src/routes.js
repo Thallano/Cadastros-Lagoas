@@ -5,7 +5,7 @@ const SearchController = require('./controllers/SearchController');
 
 const routes = Router();
 
-routes.get('/selo', Selocontroller.index);
+routes.get('/selos', Selocontroller.index);
 
 routes.post('/selos', Selocontroller.store);
 

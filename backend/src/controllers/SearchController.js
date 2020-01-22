@@ -11,7 +11,10 @@ module.exports = {
         const selos = await Selo.find({
             edital: {
                 $in: editalArray,
+                               
+
             },
+           
         
          /* location: {
                 $near: {
@@ -23,6 +26,8 @@ module.exports = {
                 },
             },*/
         });
+       
         return response.json({ selos }); 
     }
 }
+
