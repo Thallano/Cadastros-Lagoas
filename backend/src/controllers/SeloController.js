@@ -1,52 +1,53 @@
 const axios = require('axios');
-const Dev = require('../models/Selo');
-//const parseStringAsArray = require('../utils/parseStringAsArray');
+const Selo = require('../models/Selo');
+const parseStringAsArray = require('../utils/parseStringAsArray');
 //const { findConnections, sendMessage} = require ('../websocket');
 // index, show , store , update , destroy
 
 module.exports = {
     async index(request, response) {
-        const selo = await Dev.find();
+        const selos = await Selo.find();
 
-        return response.json(selo);
+        return response.json(selos);
     },
     
     async store (request, response) {
-        const { selos , endereço, latitude, longitude } = request.body;
-    
-       let dev = await Dev.findOne({ selos });
-    
-        if (!dev){
+        
+        const { imovel,  name , edital , latitude, longitude } = request.body;
+        
+        let selo = await Selo.findOne({ imovel });
+        
+        
+        if (!selo){
             // const apiResponse = await axios.get(`https://avatars1.githubusercontent.com/u/20881531?s=460&v=4`);
         
-            const{ name = login, avatar_url, bio } = apiResponse.data;
+            // const{ name = login, avatar_url, bio } = apiResponse.data;
         
-            const endereçoArray = parseStringAsArray(endereço);
+            editalArray = parseStringAsArray(edital);
         
             const location = {
                 type: 'Point',
                 coordinates: [longitude, latitude],
             };
             
-            dev = await Dev.create({
-                selos ,
+            selo = await Selo.create({
+                imovel,
                 name,
-                avatar_url,
-                bio,
-                endereço: endereçoArray,
+                edital,
+                // endereço: endereçoArray,
                 location,
             })
-
-
-      const sendSocketMenssageTo = findConnections (
+        }
+    
+    /*  const sendSocketMenssageTo = findConnections (
           { latitude, longitude },
           endereçoArray,
       )
 
-        sendMessage(sendSocketMenssageTo,'new-dev', dev);
+        sendMessage(sendSocketMenssageTo,'new-Selo', Selo);
 
-    }
+    }*/
    
-    return response.json(dev);
+    return response.json(selo);
     },
-}   
+};

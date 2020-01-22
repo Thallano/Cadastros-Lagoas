@@ -1,16 +1,16 @@
-const Dev = require('../models/Dev');
+const Selo = require('../models/Selo');
 const parseStringAsArray = require('../utils/parseStringAsArray');
 
 module.exports = {
     async index(request, response) {
         
-        const { latitude, longitude, techs } = request.query;
+        const { latitude, longitude, edital } = request.query;
        
-        const techsArray = parseStringAsArray(techs);
+        const editalArray = parseStringAsArray(edital);
         
-        const devs = await Dev.find({
-            techs: {
-                $in: techsArray,
+        const selos = await Selo.find({
+            edital: {
+                $in: editalArray,
             },
         
          /* location: {
@@ -23,6 +23,6 @@ module.exports = {
                 },
             },*/
         });
-        return response.json({ devs }); 
+        return response.json({ selos }); 
     }
 }

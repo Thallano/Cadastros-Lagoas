@@ -1,4 +1,4 @@
 module.exports = function parseStringAsArray(arrayAsString){
-    return  arrayAsString.split(',').map(variavel => variavel.trim());
+    return  arrayAsString.split(', ').map(imovel => imovel.trim());
 
 }

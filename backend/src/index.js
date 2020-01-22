@@ -4,16 +4,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const http = require('http');
 
-const routes = require('routes');
-//const { setupWebsocket } = require('./websocket');
+const routes = require('./routes');
 
-//Importando Nodes
 const app = express();
-const server = http.Server(app);
 
-setupWebsocket(server);
 
-mongoose.connect('mongodb://Thallano:thallano@cluster0-shard-00-00-0cuni.mongodb.net:27017,cluster0-shard-00-01-0cuni.mongodb.net:27017,cluster0-shard-00-02-0cuni.mongodb.net:27017/week10?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority', {
+mongoose.connect('mongodb://Thallano:thallano@cluster0-shard-00-00-0cuni.mongodb.net:27017,cluster0-shard-00-01-0cuni.mongodb.net:27017,cluster0-shard-00-02-0cuni.mongodb.net:27017/pmt?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -36,4 +32,4 @@ app.use(routes);
 
 //Escutando na porta 3333
 
-server.listen(3333);
+app.listen(3333);
