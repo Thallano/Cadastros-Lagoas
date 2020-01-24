@@ -3,8 +3,9 @@ import { StyleSheet, Image , View, Text , TextInput , TouchableOpacity } from 'r
 import MapView, { Marker , Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { MaterialIcons } from '@expo/vector-icons'
-
 import api from '../services/api';
+//import DrawerNavigator from '../navigation/DrawerNavigator'
+//import { render } from 'react-dom';
 //import { connect, disconnect}from '../services/socket';
 
 
@@ -40,13 +41,14 @@ function Main ({ navigation }) {
 
 /*function setupWebsocket(){
     const{ latitude, longitude } = currentRegion;
-
     connect(
         latitude,
         longitude,
         edital,
     );
 }*/
+
+ 
 
     async function loadSelos(){
         const { latitude, longitude } = currentRegion;
@@ -65,6 +67,23 @@ function Main ({ navigation }) {
 
     function handleRegionChanged(region){
               setCurrentRegion(region);
+    }
+   
+   
+             
+    function loadMenu (){
+        return (
+            
+        <Callout>                       
+            <View style={styles.callout}>
+            <Text style={styles.seloImovel}>My title</Text>
+            <Text style={styles.seloNome}>My description</Text>
+            </View>
+            
+        </Callout>
+         
+        )
+      
     }
 
    if(!currentRegion){
@@ -124,7 +143,19 @@ function Main ({ navigation }) {
                             size={20} 
                             color="#FFF" />
                     </TouchableOpacity>
+                    
+                    
+                    <TouchableOpacity 
+                        onPress={loadMenu}
+                        style={styles.menuButton}>  
+                        <MaterialIcons 
+                            name="menu" 
+                            size={20} 
+                            color="#FFF" />
+                    </TouchableOpacity>                    
+                        
             </View>
+            
         </>
     );
 
@@ -173,7 +204,6 @@ const styles = StyleSheet.create({
        right: 20,
        zIndex: 5,
        flexDirection:'row',
-       
     },
 
    searchInput: {
@@ -201,6 +231,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems:'center',
         marginLeft: 15,
+    },
+
+    menuButton: {
+        width: 50,
+        height: 50,
+        backgroundColor: '#00AFEF',
+        borderRadius: 1,
+        justifyContent: 'center',
+        alignItems:'center',
+        marginLeft: 15,
+               
     },
 
 })
