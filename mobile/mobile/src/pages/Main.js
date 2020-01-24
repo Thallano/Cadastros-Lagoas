@@ -1,12 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { StyleSheet, Image , View, Text , TextInput , TouchableOpacity } from 'react-native';
 import MapView, { Marker , Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { MaterialIcons } from '@expo/vector-icons'
 import api from '../services/api';
-//import DrawerNavigator from '../navigation/DrawerNavigator'
-//import { render } from 'react-dom';
-//import { connect, disconnect}from '../services/socket';
+import { Platform, Dimensions } from 'react-native';
+import { createDrawerNavigator, createAppContainer} from 'react-navigation-drawer';
+import SettingScreens from './SettingsScreen';
+
+        
+function loadMenu (){
+    
+        const DrawerNavigator = createDrawerNavigator({
+            Home: {
+             screen: SettingScreens 
+            },
+        });   
+    /*<Callout>                       
+        <View style={styles.callout}>
+        <Text style={styles.seloImovel}>My title</Text>
+        <Text style={styles.seloNome}>My description</Text>
+        </View> 
+        
+    </Callout>*/
+    }
+
 
 
 function Main ({ navigation }) {
@@ -70,21 +88,7 @@ function Main ({ navigation }) {
     }
    
    
-             
-    function loadMenu (){
-        return (
-            
-        <Callout>                       
-            <View style={styles.callout}>
-            <Text style={styles.seloImovel}>My title</Text>
-            <Text style={styles.seloNome}>My description</Text>
-            </View>
-            
-        </Callout>
-         
-        )
-      
-    }
+     
 
    if(!currentRegion){
        return null;
