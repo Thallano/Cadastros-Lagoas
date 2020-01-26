@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar, YellowBox } from 'react-native';
-
+//import SettingsScreen from './src/navigation/DrawerNavigator'
 import Routes from './src/routes';
 
 YellowBox.ignoreWarnings([

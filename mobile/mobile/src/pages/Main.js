@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { StyleSheet, Image , View, Text , TextInput , TouchableOpacity } from 'react-native';
 import MapView, { Marker , Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { MaterialIcons } from '@expo/vector-icons'
-
 import api from '../services/api';
-//import { connect, disconnect}from '../services/socket';
+
+
+
+
+    
+  
+    
 
 
 function Main ({ navigation }) {
     const [selos, setSelos] = useState([]);
     const [currentRegion, setCurrentRegion ] = useState(null);
     const [ edital , setEdital] = useState('');
+
     useEffect(() => {
         async function loadInitialPosition() {
             const { granted } = await requestPermissionsAsync();
@@ -37,16 +43,22 @@ function Main ({ navigation }) {
 
     }, []);
 
+    function loadMenu ( ){
+        console.log('Load Button Funcionando')
+        navigation.navigate('Cadastro');
+    
+    };
 
 /*function setupWebsocket(){
     const{ latitude, longitude } = currentRegion;
-
     connect(
         latitude,
         longitude,
         edital,
     );
 }*/
+
+ 
 
     async function loadSelos(){
         const { latitude, longitude } = currentRegion;
@@ -66,6 +78,9 @@ function Main ({ navigation }) {
     function handleRegionChanged(region){
               setCurrentRegion(region);
     }
+   
+   
+     
 
    if(!currentRegion){
        return null;
@@ -85,12 +100,11 @@ function Main ({ navigation }) {
                             latitude: selo.location.coordinates[1], 
                         }}
                         >
-                           
+                           <Text style={styles.seloMarker}>{selo.imovel}</Text>
                             <Image 
-                                style={styles.avatar}
-                                
-                               
+                                style={styles.avatar}                                                             
                                 source={require('./Logo_Lagoas.png') } 
+                                
                             />   
                                 
                         <Callout onPress={() => {
@@ -124,7 +138,19 @@ function Main ({ navigation }) {
                             size={20} 
                             color="#FFF" />
                     </TouchableOpacity>
+                    
+                    
+                    <TouchableOpacity 
+                        onPress={loadMenu}
+                        style={styles.menuButton}>  
+                        <MaterialIcons 
+                            name="assignment" 
+                            size={25} 
+                            color="#FFF" />
+                    </TouchableOpacity>                    
+                        
             </View>
+            
         </>
     );
 
@@ -137,8 +163,8 @@ const styles = StyleSheet.create({
     },
 
     avatar: {
-        width: 54,
-        height:54,
+        width: 55,
+        height: 55,
         borderRadius: 1,
         borderWidth: 2,
         borderColor: '#00AFEF',
@@ -157,6 +183,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
 
+    seloMarker: {
+        color: '#666',
+        fontWeight: 'bold',
+              
+    },
+
     seloNome: {
         color: '#666',
         marginTop: 5,
@@ -173,7 +205,6 @@ const styles = StyleSheet.create({
        right: 20,
        zIndex: 5,
        flexDirection:'row',
-       
     },
 
    searchInput: {
@@ -202,6 +233,26 @@ const styles = StyleSheet.create({
         alignItems:'center',
         marginLeft: 15,
     },
+
+    menuButton: {
+        width: 50,
+        height: 50,
+        backgroundColor: '#00AFEF',
+        borderRadius: 50,
+        justifyContent: 'center',
+        alignItems:'center',
+        marginLeft: 15,
+               
+    },
+
+    container: {
+        position: 'absolute',
+        top: 20,
+        left:20,
+        right: 20,
+        zIndex: 5,
+        flexDirection:'row',
+     },
 
 })
 

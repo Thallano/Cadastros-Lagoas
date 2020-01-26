@@ -1,7 +1,7 @@
 const axios = require('axios');
 const Selo = require('../models/Selo');
 const parseStringAsArray = require('../utils/parseStringAsArray');
-//const { findConnections, sendMessage} = require ('../websocket');
+
 // index, show , store , update , destroy
 
 module.exports = {
@@ -19,12 +19,7 @@ module.exports = {
         
         
         if (!selo){
-            // const apiResponse = await axios.get(`https://avatars1.githubusercontent.com/u/20881531?s=460&v=4`);
-        
-            // const{ name = login, avatar_url, bio } = apiResponse.data;
-        
-            editalArray = parseStringAsArray(edital);
-        
+                          
             const location = {
                 type: 'Point',
                 coordinates: [longitude, latitude],
@@ -34,20 +29,11 @@ module.exports = {
                 imovel,
                 name,
                 edital,
-                // endereço: endereçoArray,
                 location,
             })
         }
     
-    /*  const sendSocketMenssageTo = findConnections (
-          { latitude, longitude },
-          endereçoArray,
-      )
-
-        sendMessage(sendSocketMenssageTo,'new-Selo', Selo);
-
-    }*/
-   
+  
     return response.json(selo);
     },
 };
