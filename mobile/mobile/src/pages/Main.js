@@ -4,6 +4,7 @@ import MapView, { Marker , Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { MaterialIcons } from '@expo/vector-icons'
 import api from '../services/api';
+<<<<<<< HEAD
 
 
 
@@ -11,6 +12,29 @@ import api from '../services/api';
     
   
     
+=======
+import { Platform, Dimensions } from 'react-native';
+import { createDrawerNavigator, createAppContainer} from 'react-navigation-drawer';
+import SettingScreens from './SettingsScreen';
+
+        
+function loadMenu (){
+    
+        const DrawerNavigator = createDrawerNavigator({
+            Home: {
+             screen: SettingScreens 
+            },
+        });   
+    /*<Callout>                       
+        <View style={styles.callout}>
+        <Text style={styles.seloImovel}>My title</Text>
+        <Text style={styles.seloNome}>My description</Text>
+        </View> 
+        
+    </Callout>*/
+    }
+
+>>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
 
 
 function Main ({ navigation }) {
@@ -144,8 +168,13 @@ function Main ({ navigation }) {
                         onPress={loadMenu}
                         style={styles.menuButton}>  
                         <MaterialIcons 
+<<<<<<< HEAD
                             name="assignment" 
                             size={25} 
+=======
+                            name="menu" 
+                            size={20} 
+>>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
                             color="#FFF" />
                     </TouchableOpacity>                    
                         
@@ -238,13 +267,18 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         backgroundColor: '#00AFEF',
+<<<<<<< HEAD
         borderRadius: 50,
+=======
+        borderRadius: 1,
+>>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
         justifyContent: 'center',
         alignItems:'center',
         marginLeft: 15,
                
     },
 
+<<<<<<< HEAD
     container: {
         position: 'absolute',
         top: 20,
@@ -254,6 +288,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
      },
 
+=======
+>>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
 })
 
 export default Main; 
