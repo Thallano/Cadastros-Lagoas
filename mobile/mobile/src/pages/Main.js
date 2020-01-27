@@ -5,6 +5,25 @@ import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 import { MaterialIcons } from '@expo/vector-icons'
 import api from '../services/api';
 
+<<<<<<< HEAD
+=======
+        
+function loadMenu (){
+    
+        const DrawerNavigator = createDrawerNavigator({
+            Home: {
+             screen: SettingScreens 
+            },
+        });   
+    /*<Callout>                       
+        <View style={styles.callout}>
+        <Text style={styles.seloImovel}>My title</Text>
+        <Text style={styles.seloNome}>My description</Text>
+        </View> 
+        
+    </Callout>*/
+    }
+>>>>>>> 85df456d86eb099bd90affe6f46509155f01ff7f
 
 function Main ({ navigation }) {
     const [selos, setSelos] = useState([]);
@@ -223,12 +242,20 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: '#00AFEF',
         borderRadius: 50,
+<<<<<<< HEAD
+=======
+        borderRadius: 1,
+>>>>>>> 85df456d86eb099bd90affe6f46509155f01ff7f
         justifyContent: 'center',
         alignItems:'center',
         marginLeft: 15,
                
     },
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85df456d86eb099bd90affe6f46509155f01ff7f
     container: {
         position: 'absolute',
         top: 20,
@@ -238,6 +265,10 @@ const styles = StyleSheet.create({
         flexDirection:'row',
      },
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85df456d86eb099bd90affe6f46509155f01ff7f
 })
 
 export default Main; 
