@@ -20,6 +20,7 @@ module.exports = {
             ]
             
         });
+       
           return response.json({ selos }); 
         }
                        

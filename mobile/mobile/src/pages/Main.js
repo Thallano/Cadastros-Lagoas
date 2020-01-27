@@ -5,32 +5,13 @@ import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 import { MaterialIcons } from '@expo/vector-icons'
 import api from '../services/api';
 
-<<<<<<< HEAD
-=======
-        
-function loadMenu (){
-    
-        const DrawerNavigator = createDrawerNavigator({
-            Home: {
-             screen: SettingScreens 
-            },
-        });   
-    /*<Callout>                       
-        <View style={styles.callout}>
-        <Text style={styles.seloImovel}>My title</Text>
-        <Text style={styles.seloNome}>My description</Text>
-        </View> 
-        
-    </Callout>*/
-    }
->>>>>>> 85df456d86eb099bd90affe6f46509155f01ff7f
 
 function Main ({ navigation }) {
     const [selos, setSelos] = useState([]);
     const [currentRegion, setCurrentRegion ] = useState(null);
-    //const [ search, setSearch] = useState('');
+    //const [ filtro, setFiltro] = useState('');
     const [ edital, setEdital] = useState('');
-    //const [ imovel , setImovel] = useState('');
+    const [ imovel , setImovel] = useState('');
 
 
     useEffect(() => {
@@ -70,12 +51,13 @@ function Main ({ navigation }) {
             params: {
                 latitude,
                 longitude,
-                edital/*,
-                imovel*/
+                edital,
+                imovel
+                
             }
         });
         
-        console.log(response.data);
+        
         setSelos(response.data.selos);
        
     }
@@ -125,7 +107,7 @@ function Main ({ navigation }) {
             <View style={styles.searchForm}>
                     <TextInput
                         style={styles.searchInput}    
-                        placeholder="Buscar SELO por edital..." 
+                        placeholder="Buscar SELOS por Edital..." 
                         placeholderTextColor="#999"
                         autoCapitalize="words"        
                         autoCorrect={false} 
@@ -137,8 +119,8 @@ function Main ({ navigation }) {
                         style={styles.loadButton}>
                           
                          <MaterialIcons 
-                            name="my-location" 
-                            size={20} 
+                            name="map" 
+                            size={25} 
                             color="#FFF" />
                     </TouchableOpacity>
                     
@@ -153,7 +135,29 @@ function Main ({ navigation }) {
                     </TouchableOpacity>                    
                         
             </View>
-            
+            <View style={styles.searchForm2}>
+                    <TextInput
+                        style={styles.searchInput}    
+                        placeholder="Buscar SELO..." 
+                        placeholderTextColor="#999"
+                        autoCapitalize="words"        
+                        autoCorrect={false} 
+                        value={imovel}
+                        onChangeText={setImovel}
+                    />
+                    <TouchableOpacity 
+                        onPress={loadSelos} 
+                        style={styles.loadButton}>
+                          
+                         <MaterialIcons 
+                            name="loyalty" 
+                            size={25} 
+                            color="#FFF" />
+                    </TouchableOpacity>
+                                    
+                                  
+                        
+            </View>
         </>
     );
 
@@ -210,6 +214,15 @@ const styles = StyleSheet.create({
        flexDirection:'row',
     },
 
+    searchForm2: {
+        position: 'absolute',
+        top: 90,
+        left:20,
+        right: 20,
+        zIndex: 5,
+        flexDirection:'row',
+     },
+
    searchInput: {
         flex: 1,
         height: 50,
@@ -242,20 +255,12 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: '#00AFEF',
         borderRadius: 50,
-<<<<<<< HEAD
-=======
-        borderRadius: 1,
->>>>>>> 85df456d86eb099bd90affe6f46509155f01ff7f
         justifyContent: 'center',
         alignItems:'center',
         marginLeft: 15,
                
     },
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 85df456d86eb099bd90affe6f46509155f01ff7f
     container: {
         position: 'absolute',
         top: 20,
@@ -265,10 +270,6 @@ const styles = StyleSheet.create({
         flexDirection:'row',
      },
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 85df456d86eb099bd90affe6f46509155f01ff7f
 })
 
 export default Main; 
