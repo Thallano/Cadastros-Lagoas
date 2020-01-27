@@ -4,18 +4,6 @@ import MapView, { Marker , Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { MaterialIcons } from '@expo/vector-icons'
 import api from '../services/api';
-<<<<<<< HEAD
-
-
-
-
-    
-  
-    
-=======
-import { Platform, Dimensions } from 'react-native';
-import { createDrawerNavigator, createAppContainer} from 'react-navigation-drawer';
-import SettingScreens from './SettingsScreen';
 
         
 function loadMenu (){
@@ -33,9 +21,6 @@ function loadMenu (){
         
     </Callout>*/
     }
-
->>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
-
 
 function Main ({ navigation }) {
     const [selos, setSelos] = useState([]);
@@ -168,13 +153,8 @@ function Main ({ navigation }) {
                         onPress={loadMenu}
                         style={styles.menuButton}>  
                         <MaterialIcons 
-<<<<<<< HEAD
                             name="assignment" 
                             size={25} 
-=======
-                            name="menu" 
-                            size={20} 
->>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
                             color="#FFF" />
                     </TouchableOpacity>                    
                         
@@ -267,18 +247,15 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         backgroundColor: '#00AFEF',
-<<<<<<< HEAD
         borderRadius: 50,
-=======
         borderRadius: 1,
->>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
         justifyContent: 'center',
         alignItems:'center',
         marginLeft: 15,
                
     },
 
-<<<<<<< HEAD
+
     container: {
         position: 'absolute',
         top: 20,
@@ -288,8 +265,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
      },
 
-=======
->>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
+
 })
 
 export default Main; 
