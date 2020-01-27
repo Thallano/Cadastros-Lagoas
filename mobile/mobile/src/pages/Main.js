@@ -4,43 +4,15 @@ import MapView, { Marker , Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { MaterialIcons } from '@expo/vector-icons'
 import api from '../services/api';
-<<<<<<< HEAD
-
-
-
-
-    
-  
-    
-=======
-import { Platform, Dimensions } from 'react-native';
-import { createDrawerNavigator, createAppContainer} from 'react-navigation-drawer';
-import SettingScreens from './SettingsScreen';
-
-        
-function loadMenu (){
-    
-        const DrawerNavigator = createDrawerNavigator({
-            Home: {
-             screen: SettingScreens 
-            },
-        });   
-    /*<Callout>                       
-        <View style={styles.callout}>
-        <Text style={styles.seloImovel}>My title</Text>
-        <Text style={styles.seloNome}>My description</Text>
-        </View> 
-        
-    </Callout>*/
-    }
-
->>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
 
 
 function Main ({ navigation }) {
     const [selos, setSelos] = useState([]);
     const [currentRegion, setCurrentRegion ] = useState(null);
-    const [ edital , setEdital] = useState('');
+    //const [ search, setSearch] = useState('');
+    const [ edital, setEdital] = useState('');
+    //const [ imovel , setImovel] = useState('');
+
 
     useEffect(() => {
         async function loadInitialPosition() {
@@ -68,21 +40,9 @@ function Main ({ navigation }) {
     }, []);
 
     function loadMenu ( ){
-        console.log('Load Button Funcionando')
         navigation.navigate('Cadastro');
     
     };
-
-/*function setupWebsocket(){
-    const{ latitude, longitude } = currentRegion;
-    connect(
-        latitude,
-        longitude,
-        edital,
-    );
-}*/
-
- 
 
     async function loadSelos(){
         const { latitude, longitude } = currentRegion;
@@ -91,21 +51,21 @@ function Main ({ navigation }) {
             params: {
                 latitude,
                 longitude,
-                edital
+                edital/*,
+                imovel*/
             }
         });
         
+        console.log(response.data);
         setSelos(response.data.selos);
-       // setupWebsocket();
+       
     }
 
     function handleRegionChanged(region){
               setCurrentRegion(region);
     }
    
-   
-     
-
+        
    if(!currentRegion){
        return null;
    }
@@ -151,8 +111,8 @@ function Main ({ navigation }) {
                         autoCapitalize="words"        
                         autoCorrect={false} 
                         value={edital}
-                        onChangeText={setEdital}   
-                     />
+                        onChangeText={setEdital}
+                    />
                     <TouchableOpacity 
                         onPress={loadSelos} 
                         style={styles.loadButton}>
@@ -168,13 +128,8 @@ function Main ({ navigation }) {
                         onPress={loadMenu}
                         style={styles.menuButton}>  
                         <MaterialIcons 
-<<<<<<< HEAD
                             name="assignment" 
                             size={25} 
-=======
-                            name="menu" 
-                            size={20} 
->>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
                             color="#FFF" />
                     </TouchableOpacity>                    
                         
@@ -267,18 +222,13 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         backgroundColor: '#00AFEF',
-<<<<<<< HEAD
         borderRadius: 50,
-=======
-        borderRadius: 1,
->>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
         justifyContent: 'center',
         alignItems:'center',
         marginLeft: 15,
                
     },
 
-<<<<<<< HEAD
     container: {
         position: 'absolute',
         top: 20,
@@ -288,8 +238,6 @@ const styles = StyleSheet.create({
         flexDirection:'row',
      },
 
-=======
->>>>>>> 81bc057637ad66f588aff3fd6805c7df3007b772
 })
 
 export default Main; 

@@ -4,7 +4,7 @@ const PointSchema = require('./utils/PointSchema');
 const SeloSchema = new mongoose.Schema({
     imovel: String,
     name: String,
-    edital: [String],
+    edital: String,
     
     location: {
         type: PointSchema,
