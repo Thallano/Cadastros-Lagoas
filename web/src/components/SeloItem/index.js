@@ -11,7 +11,7 @@ function SeloItem({selo}){
                 <img src={selo.avatar_url} alt={selo.imovel} />
                 <div className="user-info">
                     <strong>{selo.imovel}</strong>
-                    <span>{selo.edital.join(', ')}</span>
+                    <span>{selo.edital}</span>
                 </div>
             </header>
             
