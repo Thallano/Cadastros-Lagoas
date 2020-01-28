@@ -9,7 +9,7 @@ function Cadastro(){
   //  const selagemUsername = navigation.getParam('imovel');
    
     
-    return <WebView style={{flex: 1}} source={{ uri: `http://192.168.1.10:3000/` }}/>
+    return <WebView style={{flex: 1}} source={{ uri: 'http://192.168.0.148:3000/' }}/>
    
    }
 

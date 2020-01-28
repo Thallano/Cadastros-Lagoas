@@ -1,6 +1,6 @@
 const axios = require('axios');
 const Selo = require('../models/Selo');
-const parseStringAsArray = require('../utils/parseStringAsArray');
+//const parseStringAsArray = require('../utils/parseStringAsArray');
 
 // index, show , store , update , destroy
 

@@ -5,27 +5,14 @@ import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 import { MaterialIcons } from '@expo/vector-icons'
 import api from '../services/api';
 
-        
-function loadMenu (){
-    
-        const DrawerNavigator = createDrawerNavigator({
-            Home: {
-             screen: SettingScreens 
-            },
-        });   
-    /*<Callout>                       
-        <View style={styles.callout}>
-        <Text style={styles.seloImovel}>My title</Text>
-        <Text style={styles.seloNome}>My description</Text>
-        </View> 
-        
-    </Callout>*/
-    }
 
 function Main ({ navigation }) {
     const [selos, setSelos] = useState([]);
     const [currentRegion, setCurrentRegion ] = useState(null);
-    const [ edital , setEdital] = useState('');
+    //const [ filtro, setFiltro] = useState('');
+    const [ edital, setEdital] = useState('');
+    const [ imovel , setImovel] = useState('');
+
 
     useEffect(() => {
         async function loadInitialPosition() {
@@ -53,21 +40,9 @@ function Main ({ navigation }) {
     }, []);
 
     function loadMenu ( ){
-        console.log('Load Button Funcionando')
         navigation.navigate('Cadastro');
     
     };
-
-/*function setupWebsocket(){
-    const{ latitude, longitude } = currentRegion;
-    connect(
-        latitude,
-        longitude,
-        edital,
-    );
-}*/
-
- 
 
     async function loadSelos(){
         const { latitude, longitude } = currentRegion;
@@ -76,21 +51,22 @@ function Main ({ navigation }) {
             params: {
                 latitude,
                 longitude,
-                edital
+                edital,
+                imovel
+                
             }
         });
         
+        
         setSelos(response.data.selos);
-       // setupWebsocket();
+       
     }
 
     function handleRegionChanged(region){
               setCurrentRegion(region);
     }
    
-   
-     
-
+        
    if(!currentRegion){
        return null;
    }
@@ -131,20 +107,20 @@ function Main ({ navigation }) {
             <View style={styles.searchForm}>
                     <TextInput
                         style={styles.searchInput}    
-                        placeholder="Buscar SELO por edital..." 
+                        placeholder="Buscar SELOS por Edital..." 
                         placeholderTextColor="#999"
                         autoCapitalize="words"        
                         autoCorrect={false} 
                         value={edital}
-                        onChangeText={setEdital}   
-                     />
+                        onChangeText={setEdital}
+                    />
                     <TouchableOpacity 
                         onPress={loadSelos} 
                         style={styles.loadButton}>
                           
                          <MaterialIcons 
-                            name="my-location" 
-                            size={20} 
+                            name="map" 
+                            size={25} 
                             color="#FFF" />
                     </TouchableOpacity>
                     
@@ -159,7 +135,29 @@ function Main ({ navigation }) {
                     </TouchableOpacity>                    
                         
             </View>
-            
+            <View style={styles.searchForm2}>
+                    <TextInput
+                        style={styles.searchInput}    
+                        placeholder="Buscar SELO..." 
+                        placeholderTextColor="#999"
+                        autoCapitalize="words"        
+                        autoCorrect={false} 
+                        value={imovel}
+                        onChangeText={setImovel}
+                    />
+                    <TouchableOpacity 
+                        onPress={loadSelos} 
+                        style={styles.loadButton}>
+                          
+                         <MaterialIcons 
+                            name="loyalty" 
+                            size={25} 
+                            color="#FFF" />
+                    </TouchableOpacity>
+                                    
+                                  
+                        
+            </View>
         </>
     );
 
@@ -216,6 +214,15 @@ const styles = StyleSheet.create({
        flexDirection:'row',
     },
 
+    searchForm2: {
+        position: 'absolute',
+        top: 90,
+        left:20,
+        right: 20,
+        zIndex: 5,
+        flexDirection:'row',
+     },
+
    searchInput: {
         flex: 1,
         height: 50,
@@ -248,13 +255,11 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: '#00AFEF',
         borderRadius: 50,
-        borderRadius: 1,
         justifyContent: 'center',
         alignItems:'center',
         marginLeft: 15,
                
     },
-
 
     container: {
         position: 'absolute',
@@ -264,7 +269,6 @@ const styles = StyleSheet.create({
         zIndex: 5,
         flexDirection:'row',
      },
-
 
 })
 
