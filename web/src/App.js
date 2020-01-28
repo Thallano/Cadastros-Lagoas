@@ -9,6 +9,7 @@ import './Main.css';
 import SeloForm from './components/SeloForm/';
 import SeloItem from './components/SeloItem/';
 
+
 function App(){
   const [selos, setSelos] = useState([]);
   
@@ -34,8 +35,7 @@ async function handleAddSelo(data){
         <strong>Cadastrar</strong>
         <SeloForm onSubmit ={handleAddSelo} />
       </aside>
-
-
+      
       <main>
         <ul>
           {selos.map(selo => (
@@ -48,6 +48,11 @@ async function handleAddSelo(data){
     </div>
    );
 
+   
+
 }
+
+
+
 
 export default App;
