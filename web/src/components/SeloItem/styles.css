@@ -1,23 +1,22 @@
-li.dev-item {
+li.selo-item {
     background: #FFF;
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02); 
     border-radius: 2px;
     padding: 20px;
 }
 
-li.dev-item header {
+li.selo-item header {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-li.dev-item header img {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
+li.selo-item header img {
+    width: 60px;
+    height: 50px;
 }
 
-li.dev-item header .user-info {
+li.selo-item header .user-info {
     margin-left: 10px;
 }
 
@@ -34,20 +33,20 @@ li.dev-item header .user-info {
 
 }
 
-li.dev-item p {
+li.selo-item p {
     color: #666;
     font-size:  14px;
     line-height: 20px;
     margin: 10px 0;
 }
 
-li.dev-item a {
+li.selo-item a {
     color: #8e4dff;
     font-size: 14px;
     text-decoration:none;
 }
 
-li.dev-item a:hover {
+li.selo-item a:hover {
     color: #5a2ea6;
 }
 

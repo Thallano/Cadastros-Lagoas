@@ -1,5 +1,6 @@
 {
-  "expo": {
+  
+ "expo": {
     "name": "mobile",
     "slug": "mobile",
     "privacy": "public",

@@ -38,8 +38,10 @@ async function handleAddSelo(data){
 
       <main>
         <ul>
-          {selos.map(selo => ( 
-            <SeloItem key={selo._id} selo={selo} />
+          {selos.map(selo => (
+                                  
+              <SeloItem key={selo._id} selo={selo} />
+              
           ))}
         </ul>
       </main>

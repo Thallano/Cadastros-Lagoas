@@ -6,16 +6,16 @@ import './styles.css';
 function SeloItem({selo}){
    
     return (
-        <li className="selo-item">
+        <li key={selo._id} className="selo-item">
             <header>
-                <img src={selo.avatar_url} alt={selo.imovel} />
+                <img src={'https://semplan.teresina.pi.gov.br/wp-content/uploads/sites/39/2015/12/LOGO-LAGOAS.jpg'} alt={selo.imovel} />
                 <div className="user-info">
                     <strong>{selo.imovel}</strong>
                     <span>{selo.edital}</span>
                 </div>
             </header>
-            
-            <a href={`https://github.com/${selo.imovel}`}>Acessar Perfil no Github</a>
+            <p>{selo.name}</p>
+            <a href={`https://semplan.teresina.pi.gov.br/wp-content/uploads/sites/39/2020/01/${selo.imovel}.pdf`}>Acessar Dossiê</a>
             </li>
     );
 }
